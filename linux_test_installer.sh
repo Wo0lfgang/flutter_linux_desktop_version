@@ -20,7 +20,7 @@ install_bin="$install_dir/linux_test_installer"
 install_app="$test_dir/linux_test_installer.sh"
 install_src="$program_dir/linux_test_installer.sh"
 
-install_bin
+
 
 log_dir="$install_dir/log"
 date=$(date +%Y%m%d)
@@ -60,16 +60,16 @@ Catagories=X-Application;\n\
 
 
 # 打印帮助信息
-print_help_message()
+print_help_messages()
 {
     echo "
-    OPTIONS: \n \
+    OPTIONS: \n\
     [ --get-current-version]\t : 获取当前版本信息
     [ --get-latest-version]\t : 获取最新版本信息
-    [ --install]\t : 安装
-    [ --restart]\t : 重新启动
-    [ --upgrade]\t : 更新
-    [ --create-desktop]\t : 创建桌面快捷
+    [ --install]           \t : 安装
+    [ --restart]           \t : 重新启动
+    [ --upgrade]           \t : 更新
+    [ --create-desktop]    \t : 创建桌面快捷
     "
 }
 
@@ -82,7 +82,7 @@ log_command()
         mkdir -p $log_dir
     fi
     date=$(date "+%Y-%m-%d %H:%M%S.%3N")
-    echo "$date : $@" >> "$log_scr" 
+    echo "$date : $@" >> "$log_src" 
 }
 
 # 仓库是否存在
@@ -132,7 +132,7 @@ get_current_version()
 }
 
 # 获取最新版本
-get-latest-version()
+get_latest_version()
 {
     log_command "开始获取最新版本"
 
@@ -390,12 +390,7 @@ shift
 done
 
 
- [ --get-current-version]\t : 获取当前版本信息
-    [ --get-latest-version]\t : 获取最新版本信息
-    [ --install]\t : 安装
-    [ --restart]\t : 重新启动
-    [ --upgrade]\t : 更新
-    [ --create-desktop]\t : 创建桌面快捷
+
 
 
 if [ "$intent_name" = "help" ]; then
